@@ -22,7 +22,7 @@ fun FactasticApp(state: AppState, onClick: () -> Unit) {
             )
         } else {
             Text(
-                text = state.fact,
+                text = state.text,
                 modifier = Modifier.align(Alignment.Center),
                 textAlign = TextAlign.Center,
                 fontSize = 24.sp
