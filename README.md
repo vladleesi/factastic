@@ -2,6 +2,14 @@
 
 Here's an example of a cross-platform app built with [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html) and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) for Android and iOS.
 
+### Stack
+- [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html)
+- [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/)
+- [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)
+- [Kotlin Serialization](https://kotlinlang.org/docs/serialization.html)
+- [Ktor](https://ktor.io/docs/getting-started-ktor-client.html)
+- [Napier](https://github.com/AAkira/Napier)
+
 ### Project Structure
 The project follows the Kotlin Multiplatform structure, allowing code sharing between Android and iOS platforms. Here's a brief overview of the project structure:
 
