@@ -4,7 +4,8 @@ Here's an example of a cross-platform app built with [Kotlin Multiplatform Mobil
 
 | Android (Dark theme) | iOS (Light theme) |
 | ----------- | ----------- |
-| ![Screenshot_20230726-183659](https://github.com/vladleesi/factastic/assets/30999008/390c022c-afe9-4bfa-88c9-b4d0f69083b1) | ![Simulator Screenshot - iPhone 14 - 2023-07-26 at 18 36 25](https://github.com/vladleesi/factastic/assets/30999008/e1d3b174-bb82-4794-8b76-dec1690d7c80) |
+| ![Screenshot_20230726-183659](https://github.com/vladleesi/factastic/assets/30999008/115ba769-1fd0-40ea-8ef6-e31917ecf185) | ![Simulator Screenshot - iPhone 14 - 2023-07-26 at 18 36 25](https://github.com/vladleesi/factastic/assets/30999008/f87e4f84-2970-45fc-9c4c-f8e5e8396f5e) |
+
 
 
 ### Stack
