@@ -8,7 +8,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
@@ -30,23 +29,8 @@ class AppViewModel {
     }
 
     private val _stateFlow = MutableStateFlow(AppState(isLoading = true))
-    val stateFlow: StateFlow<AppState>
-        get() = _stateFlow
-
-    fun onClick() = viewModelScope.launch {
-        _stateFlow.emit(AppState(isLoading = true))
-        loadUselessFact()
-    }
-
-    fun observeStateForIOS(provideNewState: ((AppState) -> Unit)) {
-        stateFlow
-            .onEach { state ->
-                if (state.isLoading.not()) {
-                    provideNewState.invoke(state)
-                }
-            }
-            .launchIn(CoroutineScope(Dispatchers.Main))
-    }
+    val state: AppState
+        get() = _stateFlow.value
 
     fun loadUselessFact() = viewModelScope.launch(exceptionHandler) {
         val response = getUselessFact().body<UselessFactsResponse>()
@@ -56,5 +40,16 @@ class AppViewModel {
                 text = response.text.orEmpty()
             )
         )
+    }
+
+    fun onClick() = viewModelScope.launch {
+        _stateFlow.emit(AppState(isLoading = true))
+        loadUselessFact()
+    }
+
+    fun observeState(provideNewState: ((AppState) -> Unit)) {
+        _stateFlow
+            .onEach(provideNewState::invoke)
+            .launchIn(CoroutineScope(Dispatchers.Main))
     }
 }

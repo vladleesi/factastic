@@ -5,8 +5,16 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -14,15 +22,35 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun FactasticApp(state: AppState, onClick: () -> Unit) {
+fun FactasticApp(viewModel: AppViewModel, modifier: Modifier = Modifier) {
+    FactasticTheme {
+        Surface(
+            modifier = modifier.fillMaxSize(),
+            color = MaterialTheme.colors.background
+        ) {
+            var state by remember { mutableStateOf(viewModel.state) }
+            viewModel.observeState { newState ->
+                state = newState
+            }
+            LaunchedEffect(Unit) {
+                viewModel.loadUselessFact()
+            }
+            MainScreen(state, viewModel::onClick)
+        }
+    }
+}
+
+@Composable
+private fun MainScreen(state: AppState, onClick: () -> Unit) {
     Box(modifier = Modifier.fillMaxSize().padding(32.dp)) {
         if (state.isLoading) {
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center)
             )
         } else {
+            val text by rememberSaveable { mutableStateOf(state.text) }
             Text(
-                text = state.text,
+                text = text,
                 modifier = Modifier.align(Alignment.Center),
                 textAlign = TextAlign.Center,
                 fontSize = 24.sp
