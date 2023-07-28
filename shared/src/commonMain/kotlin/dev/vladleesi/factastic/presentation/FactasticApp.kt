@@ -10,11 +10,10 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -28,14 +27,11 @@ fun FactasticApp(viewModel: AppViewModel, modifier: Modifier = Modifier) {
             modifier = modifier.fillMaxSize(),
             color = MaterialTheme.colors.background
         ) {
-            var state by remember { mutableStateOf(viewModel.state) }
-            viewModel.observeState { newState ->
-                state = newState
-            }
+            val state = viewModel.stateFlow.collectAsState()
             LaunchedEffect(Unit) {
                 viewModel.loadUselessFact()
             }
-            MainScreen(state, viewModel::onClick)
+            MainScreen(state.value, viewModel::onClick)
         }
     }
 }
