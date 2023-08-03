@@ -1,6 +1,6 @@
 # factastic
 
-Here's an example of a cross-platform app built with [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html) and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) for Android, iOS and Desktop.
+Here's an example of a multiplatform app built with [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html) and [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) for Android, iOS and Desktop.
 
 | Android (Dark theme) | iOS (Light theme) |
 | ----------- | ----------- |
