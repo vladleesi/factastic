@@ -32,4 +32,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "factastic"
 include(":androidApp")
+include(":desktop")
 include(":shared")

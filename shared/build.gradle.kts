@@ -17,6 +17,12 @@ kotlin {
         }
     }
 
+    jvm("desktop"){
+        compilations.all {
+            kotlinOptions.jvmTarget = "17"
+        }
+    }
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -83,6 +89,13 @@ kotlin {
                 implementation("io.ktor:ktor-client-darwin:$ktorVersion")
             }
         }
+        val desktopMain by getting {
+            dependencies {
+                val ktorVersion = extra["ktor.version"] as String
+                implementation("io.ktor:ktor-client-apache:$ktorVersion")
+            }
+        }
+        val desktopTest by getting
     }
 }
 
