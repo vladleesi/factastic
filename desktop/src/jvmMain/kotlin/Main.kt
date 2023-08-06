@@ -5,7 +5,7 @@ import dev.vladleesi.factastic.presentation.FactasticApp
 
 fun main() = application {
     val viewModel = AppViewModel()
-    Window(onCloseRequest = ::exitApplication) {
+    Window(title = "Factastic", onCloseRequest = ::exitApplication) {
         FactasticApp(viewModel)
     }
 }

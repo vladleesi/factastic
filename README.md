@@ -8,7 +8,7 @@ Here's an example of a cross-platform app built with [Kotlin Multiplatform Mobil
 
 | Desktop |
 | ------- |
-| ![Screen Recording 2023-08-02 at 9 30 18 PM (1)](https://github.com/vladleesi/factastic/assets/30999008/eebd2fae-d7f8-4ff3-8fcb-c31ba66ce1f1) |
+| ![Screen Recording 2023-08-06 at 5 02 11 PM (1)](https://github.com/vladleesi/factastic/assets/30999008/f7a6dd74-9ad2-45e1-9e3b-af56f866d780) |
 
 ### Stack
 - [Kotlin Multiplatform Mobile](https://kotlinlang.org/docs/multiplatform-mobile-getting-started.html)
@@ -36,11 +36,11 @@ The project follows the Kotlin Multiplatform structure, allowing code sharing be
 2. Click Run
 
 #### Desktop: 
-1. Open the project from [IntelliJ IDEA](https://www.jetbrains.com/idea/)
-> Since IntelliJ IDEA currently does not support Gradle versions above 7.4.0, follow these steps to address the issue:
+1. Open the project from [Android Studio](https://developer.android.com/studio)
+2. Execute the command `./gradle :desktop:run` to run the desktop module.
+> Since [IntelliJ IDEA](https://www.jetbrains.com/idea/) currently does not support Gradle versions above 7.4.0, follow these steps to address the issue:
 > 1. In the gradle.properties file, temporarily change the Gradle plugin version to 7.4.0.
 > 2. In the settings.gradle.kts file, disable the inclusion of (":androidApp").
-2. Execute the command `./gradle :desktop:run` to run the desktop module.
 
 ### Licence
 This project is licensed under the [MIT License](LICENSE).
